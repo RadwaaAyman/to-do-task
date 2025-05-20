@@ -1,0 +1,88 @@
+﻿@using HrModule.Application.Contracts.Employees
+@using MudBlazor
+@inject NavigationManager NavigationManager
+@inject ISnackbar Snackbar
+@inject IDialogService DialogService
+@inject IEmployeeAppService EmployeeAppService
+<div class="modal-wrapper text-center" style="width:500px">
+    <MudDialog class="text-center">
+        <TitleContent>
+            <MudText Class="fw-bold">View Employee Details</MudText>
+        </TitleContent>
+        <DialogContent>
+            <MudForm Model="@EmployeeDto" Class="my-2">
+                <MudGrid>
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="First Name" @bind-Value="EmployeeDto.FirstName"
+                                      ReadOnly
+                                      Variant="Variant.Outlined" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="Last Name" @bind-Value="EmployeeDto.LastName"
+                                      ReadOnly
+                                      Variant="Variant.Outlined" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="Email" @bind-Value="EmployeeDto.Email"
+                                      ReadOnly
+                                      Variant="Variant.Outlined" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="User Name" @bind-Value="EmployeeDto.UserName"
+                                      Variant="Variant.Outlined"
+                                      ReadOnly
+                                     />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="National Id" @bind-Value="EmployeeDto.NationalId"
+                                      Variant="Variant.Outlined"
+                                     ReadOnly />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="National Id" @bind-Value="EmployeeDto.Gender"
+                                      Variant="Variant.Outlined"
+                                      ReadOnly />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="National Id" @bind-Value="EmployeeDto.Marital"
+                                      Variant="Variant.Outlined"
+                                      ReadOnly />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="National Id" @bind-Value="EmployeeDto.BirthDate"
+                                      Variant="Variant.Outlined"
+                                      ReadOnly />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="Phone Number" @bind-Value="EmployeeDto.PhoneNumber"
+                                      Variant="Variant.Outlined"
+                                      ReadOnly/>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="Work Phone" @bind-Value="EmployeeDto.WorkPhone"
+                                      Variant="Variant.Outlined"
+                                      ReadOnly/>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="National Id" @bind-Value="EmployeeDto.Status"
+                                      Variant="Variant.Outlined"
+                                      ReadOnly />
+                    </MudItem>
+                </MudGrid>
+            </MudForm>
+        </DialogContent>
+        <DialogActions>
+            <MudButton FullWidth="true" DropShadow="true" Variant="MudBlazor.Variant.Filled" Color="MudBlazor.Color.Dark" OnClick="Cancel">Back</MudButton>
+        </DialogActions>
+    </MudDialog>
+</div>
