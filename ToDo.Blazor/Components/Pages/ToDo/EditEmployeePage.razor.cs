@@ -1,15 +1,15 @@
-﻿using HrModule.Application.DTOS.Employees;
+﻿using ToDo.Application.DTOS;
 using Microsoft.AspNetCore.Components;
 
-namespace HrModule.Blazor.Components.Pages.Employees;
+namespace ToDo.Blazor.Components.Pages.ToDo;
 
-public partial class EditEmployeePage
+public partial class EditToDoPage
 {
     [Parameter]
     public bool _open { get; set; }
 
     [Parameter]
-    public CreateUpdateEmployeeDto CreateUpdateEmployeeDto { get; set; }
+    public CreateUpdateToDoDto CreateUpdateToDoDto { get; set; }
 
     [Parameter]
     public EventCallback Cancel { get; set; }

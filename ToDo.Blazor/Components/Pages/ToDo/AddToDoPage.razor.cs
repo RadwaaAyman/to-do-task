@@ -1,10 +1,9 @@
 ﻿using ToDo.Application.DTOS;
 using MudBlazor;
-using ToDo.Application.Services;
 
 namespace ToDo.Blazor.Components.Pages.ToDo;
 
-public partial class AddTDoPage
+public partial class AddToDoPage
 {
     private MudForm? form;
 
@@ -21,15 +20,15 @@ public partial class AddTDoPage
 
     private async Task SubmitForm()
     {
-        var result = await ToDoService(createUpdateToDoDto);
+        var result = await ToDoAppService.CreateAsync(createUpdateToDoDto);
 
         if (result.IsSuccess)
 
         {
 
-            Snackbar.Add("Employee added successfully", MudBlazor.Severity.Success);
+            Snackbar.Add("To Do added successfully", MudBlazor.Severity.Success);
 
-            Navigation.NavigateTo("/employees");
+            Navigation.NavigateTo("/todo");
 
         }
         else

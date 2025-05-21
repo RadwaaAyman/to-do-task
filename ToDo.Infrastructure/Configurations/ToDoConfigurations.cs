@@ -17,7 +17,7 @@ public class ToDoConfigurations : IEntityTypeConfiguration<ToDoEntity>
     /// <summary>
     /// Configures the ToDo entity.
     /// </summary>
-    /// <param name="builder">The EntityTypeBuilder for the Employee entity.</param>
+    /// <param name="builder">The EntityTypeBuilder for the toDo entity.</param>
     public void Configure(EntityTypeBuilder<ToDoEntity> builder)
     {
         builder.Property(td => td.Title)

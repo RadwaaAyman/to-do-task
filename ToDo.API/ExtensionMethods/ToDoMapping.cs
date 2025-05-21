@@ -1,4 +1,6 @@
 ﻿using ToDo.API.Mapping;
+using ToDo.Application.DTOS;
+using ToDo.Domain.Entities;
 
 namespace ToDo.API.ExtensionMethods;
 
@@ -14,9 +16,9 @@ public static class ToDoMapping
     public static void AddToDoMapping(this MappingProfiles map)
     {
         // TO DO: implement employee mapping logic
-        map.CreateMap<CreateUpdateEmployeeDto, Employee>().ReverseMap();
-        map.CreateMap<Employee, EmployeeDto>().ReverseMap();
-        map.CreateMap<CreateUpdateEmployeeDto, EmployeeDto>().ReverseMap();
+        map.CreateMap<CreateUpdateToDoDto, ToDoEntity>();
+        map.CreateMap<ToDoEntity, ToDoDto>();
+        map.CreateMap<CreateUpdateToDoDto, ToDoDto>();
 
     }
 }
