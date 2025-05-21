@@ -1,0 +1,75 @@
+﻿@* @using AutoMapper
+@using HrModule.Application.Contracts.Employees
+@using HrModule.Application.DTOS.Employees
+@using MudBlazor
+@using SharedKernel.Dtos
+@inject IMapper Mapper
+@page "/employees"
+@inject IEmployeeAppService EmployeeAppService
+@inject NavigationManager NavigationManager
+@inject IDialogService Dialog
+@inject ISnackbar Snackbar
+
+
+@if (_openDrawer)
+{
+    <EditEmployeePage _Open="_openDrawer" CreateUpdateEmployeeDto="CreateUpdateEmployee" Submit="SubmitEdit" Cancel="CancelEdit" />
+}
+
+<MudDataGrid @ref="dataGrid" T="EmployeeDto" ServerData="ServerReload" SortMode="SortMode.Multiple"
+Hideable="true" Loading ShowColumnOptions  >
+    <ToolBarContent>
+        <MudItem Class="d-flex justify-content-between align-items-end" md="12" lg="12" sm="12">
+
+
+            <MudItem xs="12" sm="3">
+                <MudText Typo="Typo.h6">Employees</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField @bind-Value:get="_searchString" @bind-Value:set="OnSearching"
+                              Placeholder="Search"
+                              Adornment="Adornment.Start"
+                              Immediate="true"
+                              AdornmentIcon="@Icons.Material.Filled.Search"
+                              IconSize="Size.Small"
+                              Variant="Variant.Outlined"
+                              Style="height: 35px;" />
+            </MudItem>
+            <MudItem xs="12" sm="3" Class="align-self-end">
+                <MudButton Class="mx-2" OnClick="CreateCustomer" Color="Color.Primary" Variant="Variant.Filled">Create</MudButton>
+            </MudItem>
+        </MudItem>
+        
+    </ToolBarContent>
+    <Columns>
+
+        <PropertyColumn Property="x => x.FirstName" Title="First Name" />
+        <PropertyColumn Property="x => x.LastName" Title="Last Name" />
+        <PropertyColumn Property="x => x.WorkPhone" Title="Work Phone"  />
+        <PropertyColumn Property="x => x.Email" Title="Email"  />
+        <PropertyColumn Property="x => x.Status" Title="Status" />
+        <TemplateColumn Title="Actions">
+           
+            <CellTemplate>
+                <MudMenu Icon="@Icons.Material.Filled.MoreVert" Color="Color.Primary" Size="Size.Small">
+                    <MudMenuItem OnClick="@(() => ViewEmoloyee(@context.Item.Id))">
+                        <MudIcon Icon="@Icons.Material.Filled.Visibility" /> View
+                    </MudMenuItem>
+                    <MudMenuItem OnClick="@(() => EditEmoloyee(@context.Item.Id))">
+                        <MudIcon Icon="@Icons.Material.Filled.Edit" /> Edit
+                    </MudMenuItem>
+                    <MudMenuItem OnClick="@(() => DeleteEmoloyee(context.Item.Id))">
+                        <MudIcon Icon="@Icons.Material.Filled.Delete"/> Delete
+                    </MudMenuItem>
+
+                </MudMenu>
+            </CellTemplate>
+        </TemplateColumn>
+    </Columns>
+
+    
+    <PagerContent>
+        <MudDataGridPager T="EmployeeDto" />
+    </PagerContent>
+</MudDataGrid>
+ *@

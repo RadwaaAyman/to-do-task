@@ -1,0 +1,99 @@
+﻿@* @using HrModule.Application.DTOS.Employees
+@using HrModule.Domain.Enums
+
+    <MudDrawer @bind-Open="@_open" Anchor="Anchor.End" Elevation="1" Style="width: 50%" Variant="@DrawerVariant.Responsive" OverlayAutoClose="true">
+    <MudDrawerHeader>
+        <MudText Typo="Typo.h6">Edit Product</MudText>
+    </MudDrawerHeader>
+    <MudMainContent Class="pt-16 px-16">
+        <MudContainer Class="mt-6">
+            <MudForm Model="CreateUpdateEmployeeDto">
+                <MudGrid>
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="First Name" @bind-Value="CreateUpdateEmployeeDto.FirstName"
+                                      Required="true" RequiredError="First name is required"
+                                      Variant="Variant.Outlined" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="Last Name" @bind-Value="CreateUpdateEmployeeDto.LastName"
+                                      Required="true" RequiredError="Last name is required"
+                                      Variant="Variant.Outlined" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="Email" @bind-Value="CreateUpdateEmployeeDto.Email"
+                                      Required="true" RequiredError="Email is required"
+                                      Variant="Variant.Outlined" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="User Name" @bind-Value="CreateUpdateEmployeeDto.UserName"
+                                      Variant="Variant.Outlined"
+                                      Required="true" RequiredError="User name is required" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="National Id" @bind-Value="CreateUpdateEmployeeDto.NationalId"
+                                      Variant="Variant.Outlined"
+                                      Required="true" RequiredError="National Id is required" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudSelect T="Gender" Label="Gender" @bind-Value="CreateUpdateEmployeeDto.Gender"
+                                   RequiredError="Please select a gender">
+                            @foreach (var gender in Enum.GetValues<Gender>())
+                            {
+                                <MudSelectItem Value="@gender">@gender</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudSelect T="MaritalStatus" Label="Marital Status" @bind-Value="CreateUpdateEmployeeDto.Marital"
+                                   RequiredError="Please select a marital status">
+                            @foreach (var marital in Enum.GetValues<MaritalStatus>())
+                            {
+                                <MudSelectItem Value="@marital">@marital</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudDatePicker Label="Birth Date" @bind-Date="CreateUpdateEmployeeDto.BirthDate"
+                                       Placeholder="Select Date" Required="true" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="Phone Number" @bind-Value="CreateUpdateEmployeeDto.PhoneNumber"
+                                      Variant="Variant.Outlined" />
+                    </MudItem>
+
+                    <MudItem xs="12" sm="6">
+                        <MudTextField Label="Work Phone" @bind-Value="CreateUpdateEmployeeDto.WorkPhone"
+                                      Variant="Variant.Outlined" />
+                    </MudItem>
+                    <MudItem xs="12" sm="6">
+                        <MudSelect T="Status" Label="Status" @bind-Value="CreateUpdateEmployeeDto.Status"
+                                   RequiredError="Please select a status">
+                            @foreach (var status in Enum.GetValues<Status>())
+                            {
+                                <MudSelectItem Value="@status">@status</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+
+                    <MudItem xs="12" Class="d-flex justify-content-end">
+                        <MudButton Variant="Variant.Filled" Color="Color.Dark" OnClick="Cancel" Class="me-1">
+                            Cancel
+                        </MudButton>
+                        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Submit">
+                            Submit
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </MudForm>
+        </MudContainer>
+    </MudMainContent>
+
+</MudDrawer> *@
